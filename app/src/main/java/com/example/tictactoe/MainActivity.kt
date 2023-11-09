@@ -30,23 +30,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Retrieve the names and size from the intent
         xNameFromEdt = intent.getStringExtra("player_name_1") ?: "Player X"
         oNameFromEdt = intent.getStringExtra("player_name_2") ?: "Player O"
         val size = intent.getIntExtra("grid_size", 3)
 
-        // Set the TextViews with the names of the players received from the BoardSizeActivity
         binding.playerXName.text = xNameFromEdt
         binding.playerOName.text = oNameFromEdt
-
-        // Update the TextView to indicate which player will start the game
         binding.playerTurn.text = "Player $xNameFromEdt ($currentPlayer) to start"
 
         startGame(size)
         setUpListeners()
     }
 
-    // set Button
     private fun setUpListeners() {
         // set reset button
         binding.resetButton.setOnClickListener() {
@@ -127,7 +122,6 @@ class MainActivity : AppCompatActivity() {
                 saveGameHistory(winnerName, buttons.size, xNameFromEdt, oNameFromEdt)
                 disabledButton()
             } else {
-                // Check if all cells are filled and it's a draw
                 if (isGameDraw()) {
                     binding.playerTurn.text = "Game is a draw"
                     saveGameHistory("No one won", buttons.size, xNameFromEdt, oNameFromEdt)
