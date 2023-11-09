@@ -1,0 +1,138 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EAE5BB"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Game Board Layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="124dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp">
+
+
+        <!-- Player X Name -->
+        <TextView
+            android:id="@+id/player_x_name"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="42dp"
+            android:gravity="center"
+            android:text="@string/x_name"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Player O Name -->
+        <TextView
+            android:id="@+id/player_o_name"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="31dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="@string/o_name"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Score Display -->
+        <TextView
+            android:id="@+id/player_x_score"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/player_x_name"
+            android:layout_alignStart="@+id/player_x_name"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/x_score"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/player_o_score"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/player_o_name"
+            android:layout_alignEnd="@+id/player_o_name"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="0dp"
+            android:text="@string/o_score"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="379dp"
+        android:layout_height="338dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:background="#B3B9DA"
+        android:columnCount="3"
+        android:padding="16dp"
+        android:rowCount="3" />
+
+    <!-- Turn Information -->
+    <TextView
+        android:id="@+id/player_turn"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="top"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="Player X to start" />
+
+    <!-- Button Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/backButton"
+            style="?android:attr/buttonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/back_btn" />
+
+
+        <!-- Reset Button -->
+        <Button
+            android:id="@+id/resetButton"
+            style="?android:attr/buttonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/reset_bth" />
+
+        <!-- History Button -->
+        <Button
+            android:id="@+id/historyButton"
+            style="?android:attr/buttonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/game_history_txt" />
+    </LinearLayout>
+
+</LinearLayout>
