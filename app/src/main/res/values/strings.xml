@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Tic Tac Toe</string>
-    <string name="hint_size">Enter board size (e.g., 3 for 3x3)</string>
+    <string name="hint_size">Enter board size</string>
     <string name="hint_player_x_name">Enter player X name</string>
     <string name="hint_player_o_name">Enter player O name</string>
     <string name="start_game_txt">Start Game</string>
@@ -10,7 +10,7 @@
     <string name="x_score">score X : 0</string>
     <string name="o_score">score O : 0</string>
     <string name="back_btn">Back</string>
-    <string name="reset_bth">Reset</string>
+    <string name="reset_btn">Reset</string>
     <string name="delete_btn">Delete</string>
     <string name="home_btn">Home</string>
 </resources>

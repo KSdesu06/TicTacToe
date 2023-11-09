@@ -18,28 +18,30 @@
         <!-- Player X Name -->
         <TextView
             android:id="@+id/player_x_name"
-            android:layout_width="135dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="42dp"
-            android:gravity="center"
-            android:text="@string/x_name"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/flyingbird"
+            android:gravity="start"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="chawaphon" />
 
         <!-- Player O Name -->
         <TextView
             android:id="@+id/player_o_name"
-            android:layout_width="135dp"
+            android:layout_width="157dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="31dp"
             android:layout_marginEnd="16dp"
-            android:gravity="center"
-            android:text="@string/o_name"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/flyingbird"
+            android:gravity="end"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="kanlayanuch" />
 
         <!-- Score Display -->
         <TextView
@@ -50,6 +52,7 @@
             android:layout_alignStart="@+id/player_x_name"
             android:layout_marginStart="0dp"
             android:layout_marginTop="18dp"
+            android:fontFamily="@font/superboy"
             android:text="@string/x_score"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -62,6 +65,7 @@
             android:layout_alignEnd="@+id/player_o_name"
             android:layout_marginTop="18dp"
             android:layout_marginEnd="0dp"
+            android:fontFamily="@font/superboy"
             android:text="@string/o_score"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -81,58 +85,68 @@
         android:rowCount="3" />
 
     <!-- Turn Information -->
+
+    <!-- Button Bar -->
+
     <TextView
         android:id="@+id/player_turn"
-        android:layout_width="170dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_gravity="top"
-        android:layout_marginStart="108dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"
+        android:fontFamily="@font/flyingbird"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        android:textSize="20sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         tools:text="Player X to start" />
 
-    <!-- Button Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_marginTop="16dp"
+        android:gravity="center"
         android:orientation="horizontal"
+        android:padding="16dp"
         android:weightSum="3">
-
 
         <!-- Back Button -->
         <Button
             android:id="@+id/backButton"
-            style="?android:attr/buttonStyle"
-            android:layout_width="0dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:text="@string/back_btn" />
-
+            android:fontFamily="@font/flyingbird"
+            android:text="@string/back_btn"
+            android:textSize="18sp" />
 
         <!-- Reset Button -->
         <Button
             android:id="@+id/resetButton"
-            style="?android:attr/buttonStyle"
-            android:layout_width="0dp"
+            android:layout_width="63dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:text="@string/reset_bth" />
+            android:fontFamily="@font/flyingbird"
+            android:text="@string/reset_btn"
+            android:textSize="18sp" />
 
         <!-- History Button -->
         <Button
             android:id="@+id/historyButton"
-            style="?android:attr/buttonStyle"
-            android:layout_width="0dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:text="@string/game_history_txt" />
+            android:fontFamily="@font/flyingbird"
+            android:text="@string/game_history_txt"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </LinearLayout>

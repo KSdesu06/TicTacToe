@@ -9,10 +9,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/superboy"
         android:text="@string/game_history_txt"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        android:textSize="40dp" />
+        android:textSize="50dp" />
 
     <ListView
         android:id="@+id/historyListView"
@@ -33,7 +34,9 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="50dp"
             android:layout_weight="1"
-            android:text="@string/back_btn" />
+            android:fontFamily="@font/flyingbird"
+            android:text="@string/back_btn"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/home_button"
@@ -42,7 +45,9 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="50dp"
             android:layout_weight="1"
-            android:text="@string/home_btn" />
+            android:fontFamily="@font/flyingbird"
+            android:text="@string/home_btn"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </LinearLayout>

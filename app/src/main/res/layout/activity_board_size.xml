@@ -7,37 +7,44 @@
     android:background="@color/yellow"
     tools:context=".BoardSizeActivity">
 
-    <!-- Enter board size -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/superboy"
         android:text="@string/app_name"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        android:textSize="40dp"
+        android:textSize="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Enter board size -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/board_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="212dp"
         android:hint="@string/hint_size"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/size_edt"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:fontFamily="@font/flyingbird"
+            android:inputType="number"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,6 +55,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="@string/hint_player_x_name"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
         app:layout_constraintEnd_toEndOf="@+id/board_size"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/board_size"
@@ -56,9 +67,11 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/player_name1_edt"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:fontFamily="@font/flyingbird"
+            android:inputType="text"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,6 +82,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="@string/hint_player_o_name"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
         app:layout_constraintEnd_toEndOf="@+id/player_name1"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/player_name1"
@@ -77,33 +94,37 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/player_name2_edt"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:fontFamily="@font/flyingbird"
+            android:inputType="text"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Start Button -->
-
-    <!-- Game History Button -->
-
     <Button
         android:id="@+id/start_button"
         style="?android:attr/buttonTintMode"
-        android:layout_width="200dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/flyingbird"
         android:text="@string/start_game_txt"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/player_name2"
         app:layout_constraintStart_toStartOf="@+id/player_name2"
         app:layout_constraintTop_toBottomOf="@+id/player_name2" />
 
+    <!-- Game History Button -->
     <Button
         android:id="@+id/history_btn"
-        android:layout_width="200dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/flyingbird"
         android:text="@string/game_history_txt"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/start_button"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="@+id/start_button"

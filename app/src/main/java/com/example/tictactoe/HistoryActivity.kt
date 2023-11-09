@@ -6,8 +6,8 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.tictactoe.database.GameDatabase
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -15,25 +15,26 @@ import kotlinx.coroutines.withContext
 class HistoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_history)
 
         val historyListView: ListView = findViewById(R.id.historyListView)
-        // val deleteBtn: Button = findViewById(R.id.delete_button)
         val histories = mutableListOf<String>()
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, histories)
         historyListView.adapter = adapter
 
-        CoroutineScope(Dispatchers.IO).launch {
-            val gameHistories =
+        lifecycleScope.launch {
+            val gameHistories = withContext(Dispatchers.IO) {
                 GameDatabase.getDatabase(applicationContext).historyDao().getAllHistories()
-            withContext(Dispatchers.Main) {
+            }
+            if (gameHistories.isEmpty()) {
+                histories.add("No history records found.")
+            } else {
                 gameHistories.forEach { history ->
-                    histories.add("Round: ${history.id} \n" +
-                            "\tBoard Size: ${history.boardSizeHis} x ${history.boardSizeHis} \n" +
-                            "\tWinner: ${history.playerWins} \n" +
-                            "\tPlayer X Name: ${history.playerXName} \n" +
-                            "\tPlayer O Name: ${history.playerOName}\n"
+                    histories.add("\nGame: ${history.id}\n" +
+                            "\t\tBoard Size: ${history.boardSizeHis} x ${history.boardSizeHis} \n" +
+                            "\t\tPlayer X Name: ${history.playerXName}\n" +
+                            "\t\tPlayer O Name: ${history.playerOName}\n" +
+                            "\t\tWinner: ${history.playerWins}\n"
                     )
                 }
                 adapter.notifyDataSetChanged()
@@ -48,8 +49,10 @@ class HistoryActivity : AppCompatActivity() {
         }
 
         homeBtn.setOnClickListener() {
-            val intent = Intent(this, BoardSizeActivity::class.java)
+            intent = Intent(this, BoardSizeActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
+            finish()
         }
     }
 }

@@ -21,7 +21,6 @@ abstract class GameDatabase : RoomDatabase() {
                     "history.db"
                 )
                     .createFromAsset("database/history.db")
-                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 instance

@@ -1,11 +1,13 @@
 package com.example.tictactoe
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
 import android.widget.Button
 import android.widget.GridLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import com.example.tictactoe.database.GameDatabase
 import com.example.tictactoe.database.History
 import com.example.tictactoe.databinding.ActivityMainBinding
@@ -38,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding.playerOName.text = oNameFromEdt
 
         // Update the TextView to indicate which player will start the game
-        binding.playerTurn.text = "Player $currentPlayer to start"
+        binding.playerTurn.text = "Player $xNameFromEdt ($currentPlayer) to start"
 
         startGame(size)
         setUpListeners()
@@ -69,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun resetGame() {
         currentPlayer = "X"
-        binding.playerTurn.text = "Player $currentPlayer to start"
+        binding.playerTurn.text = "Player $xNameFromEdt ($currentPlayer) to start"
         binding.gridLayout.removeAllViews()
     }
 
@@ -84,6 +86,8 @@ class MainActivity : AppCompatActivity() {
             binding.gridLayout.rowCount = size
             buttons = Array(size) { arrayOfNulls(size) }
 
+            val typeface = ResourcesCompat.getFont(this, R.font.flyingbird)
+
             for (i in 0 until size) {
                 for (j in 0 until size) {
                     val button = Button(this)
@@ -92,6 +96,8 @@ class MainActivity : AppCompatActivity() {
                         size < 10 -> button.textSize = 15f
                         else -> button.textSize = 9f
                     }
+
+                    button.setTypeface(typeface, Typeface.NORMAL)
                     button.setOnClickListener {
                         onGridButtonClick(it as Button, i, j)
                     }
@@ -102,7 +108,6 @@ class MainActivity : AppCompatActivity() {
                     params.width = buttonSize
                     params.height = buttonSize
                     params.setMargins(0, 0, 0, 0)
-
                     button.layoutParams = params
                 }
             }
@@ -129,7 +134,9 @@ class MainActivity : AppCompatActivity() {
                     disabledButton()
                 } else {
                     currentPlayer = if (currentPlayer == "X") "O" else "X"
-                    binding.playerTurn.text = "Player $currentPlayer's turn"
+                    binding.playerTurn.text =
+                        if (currentPlayer == "X") "Player $xNameFromEdt ($currentPlayer)'s turn"
+                        else "Player $oNameFromEdt ($currentPlayer)'s turn"
                 }
             }
 
