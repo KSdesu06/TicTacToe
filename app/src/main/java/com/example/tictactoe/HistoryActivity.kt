@@ -3,24 +3,25 @@ package com.example.tictactoe
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.tictactoe.database.GameDatabase
+import com.example.tictactoe.databinding.ActivityHistoryBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class HistoryActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityHistoryBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_history)
+        binding = ActivityHistoryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val historyListView: ListView = findViewById(R.id.historyListView)
         val histories = mutableListOf<String>()
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, histories)
-        historyListView.adapter = adapter
+        binding.historyListView.adapter = adapter
 
         lifecycleScope.launch {
             val gameHistories = withContext(Dispatchers.IO) {
@@ -41,14 +42,11 @@ class HistoryActivity : AppCompatActivity() {
             }
         }
 
-        val backBtn: Button = findViewById(R.id.back_button2)
-        val homeBtn: Button = findViewById(R.id.home_button)
-
-        backBtn.setOnClickListener() {
+        binding.backButton2.setOnClickListener() {
             finish()
         }
 
-        homeBtn.setOnClickListener() {
+        binding.homeButton.setOnClickListener() {
             intent = Intent(this, BoardSizeActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
